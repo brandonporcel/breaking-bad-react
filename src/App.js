@@ -7,6 +7,8 @@ import CharacterDescription from './components/character-description';
 import CharacterPlaceholder from './components/character-placeholder';
 import API from './components/api';
 
+import img from './img';
+
 const api = new API();
 
 function App() {
@@ -47,9 +49,9 @@ function App() {
 			</div>
 			<div className="container">
 				<header className="header">
-					<img className="header-logo" src="img/logo.png" alt="" />
+					<img className="header-logo" src={img.logo} alt="breaking bad logo" />
 					<a href="pages/grid.html">
-						<img className="arrow-img" src="img/grid.svg" alt="" />
+						<img className="arrow-img" src={img.grid} alt="" />
 					</a>
 				</header>
 				<main>
@@ -61,13 +63,13 @@ function App() {
 									<img
 										id="prev-btn"
 										className="arrow-img"
-										src="img/left-arrow.svg"
+										src={img.leftArrow}
 										alt=""
 									/>
 									<img
 										id="next-btn"
 										className="arrow-img"
-										src="img/right-arrow.svg"
+										src={img.rightArrow}
 										alt=""
 									/>
 								</div>
@@ -92,14 +94,14 @@ function App() {
 						target="_blank"
 						rel="noopener"
 					>
-						<img className="arrow-img" src="img/github.svg" alt="" />
+						<img className="arrow-img" src={img.github} alt="" />
 					</a>
 					<a
 						href="https://instagram.com/brandonporcel"
 						target="_blank"
 						rel="noopener"
 					>
-						<img className="arrow-img" src="img/instagram.svg" alt="" />
+						<img className="arrow-img" src={img.instagram} alt="" />
 					</a>
 				</footer>
 			</div>
