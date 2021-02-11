@@ -27,7 +27,11 @@ body {
 	background-color: var(--principal-color);
 	overflow-x: hidden;
 }
-
+.small-img {
+	width: 43px;
+	height: 43px;
+	cursor: pointer;
+}
 /* placeholder backgeound ---------------------------------------------------------------*/
 .placeholder {
 	position: fixed;
@@ -95,7 +99,6 @@ body {
 	width: 150px;
 	margin: 0 auto;
 	display: block;
-	border: 1px solid;
 }
 /* main ---------------------------------------------------------------*/
 .info-container {
@@ -114,12 +117,11 @@ body {
 	justify-content: space-between;
 	width: 70%;
 }
-.arrow-img {
+/* .arrow-img {
 	width: 43px;
 	height: 43px;
 	cursor: pointer;
-	border: 1px solid;
-}
+} */
 
 .character-image {
 	border-radius: 50%;

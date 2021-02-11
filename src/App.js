@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import Character from './components/character';
+import './nprogress.css';
+// import Character from './components/character';
 import CharacterName from './components/character-name';
 import CharacterImage from './components/character-image';
 import CharacterDescription from './components/character-description';
 import CharacterPlaceholder from './components/character-placeholder';
-import API from './components/api';
-
+import Next from './components/next';
+import Back from './components/back';
+import api from './components/api';
+import Layout from './components/layout';
 import img from './img';
-
-const api = new API();
+import CharacterContext from './components/character-context';
 
 function App() {
 	const [character, setCharacter] = useState({});
@@ -24,8 +26,14 @@ function App() {
 		};
 		getCharacterInfo();
 	}, []);
+
 	return (
-		<>
+		<CharacterContext.Provider
+			value={{
+				character,
+				setCharacter,
+			}}
+		>
 			<div className="placeholder">
 				<CharacterPlaceholder name={character.name}></CharacterPlaceholder>
 				<div className="navigation navigation-name">
@@ -47,65 +55,20 @@ function App() {
 					</div>
 				</div>
 			</div>
-			<div className="container">
-				<header className="header">
-					<img className="header-logo" src={img.logo} alt="breaking bad logo" />
-					<a href="pages/grid.html">
-						<img className="arrow-img" src={img.grid} alt="" />
-					</a>
-				</header>
-				<main>
-					<section className="info-container">
-						<div className="character-labels-container">
-							<div className="character-name-arrows-container">
-								<CharacterName name={character.name}></CharacterName>
-								<div className="arrows-container">
-									<img
-										id="prev-btn"
-										className="arrow-img"
-										src={img.leftArrow}
-										alt=""
-									/>
-									<img
-										id="next-btn"
-										className="arrow-img"
-										src={img.rightArrow}
-										alt=""
-									/>
-								</div>
-							</div>
-							<CharacterDescription
-								portrayed={character.portrayed}
-								occupation={character.occupation}
-								status={character.status}
-							></CharacterDescription>
-						</div>
-						<div className="character-image-container">
-							<CharacterImage
-								image={character.img}
-								name={character.name}
-							></CharacterImage>
-						</div>
-					</section>
-				</main>
-				<footer className="footer">
-					<a
-						href="https://github.com/brandonporcel"
-						target="_blank"
-						rel="noopener"
-					>
-						<img className="arrow-img" src={img.github} alt="" />
-					</a>
-					<a
-						href="https://instagram.com/brandonporcel"
-						target="_blank"
-						rel="noopener"
-					>
-						<img className="arrow-img" src={img.instagram} alt="" />
-					</a>
-				</footer>
-			</div>
-		</>
+			<Layout
+				next={<Next nextImg={img.rightArrow} nextImgAlt="next arrow" />}
+				back={<Back backImg={img.leftArrow} backImgAlt="back arrow" />}
+				name={<CharacterName name={character.name} />}
+				description={
+					<CharacterDescription
+						portrayed={character.portrayed}
+						occupation={character.occupation}
+						status={character.status}
+					/>
+				}
+				image={<CharacterImage image={character.img} />}
+			/>
+		</CharacterContext.Provider>
 	);
 }
 

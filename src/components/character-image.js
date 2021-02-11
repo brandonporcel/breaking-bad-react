@@ -1,11 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const CharacterStyled = styled.div`
+const CharacterStyled = styled.img`
 	height: 200px;
 	width: 200px;
 	position: relative;
-	border: 1px solid;
 
 	&::after {
 		content: '';
@@ -22,9 +21,11 @@ const CharacterStyled = styled.div`
 
 function CharacterImage({ image, name }) {
 	return (
-		<CharacterStyled>
-			<img className="character-image" src={image} alt={name} />
-		</CharacterStyled>
+		<CharacterStyled
+			className="character-image"
+			src={image}
+			alt={name}
+		></CharacterStyled>
 	);
 }
 export default CharacterImage;

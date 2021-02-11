@@ -6,4 +6,5 @@ class API {
 		return answerJson;
 	}
 }
-export default API;
+const api = new API();
+export default api;
