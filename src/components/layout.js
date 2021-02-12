@@ -1,50 +1,39 @@
 import React from 'react';
 import styled from 'styled-components';
 import img from '../img';
-const CharacterStyled = styled.div``;
+import Social from './social';
+import Logo from './logo';
+import GridPage from './grid-page';
+const CharacterStyled = styled.div`
+	padding: 50px;
+	position: relative;
+	z-index: 22;
+	height: 100vh;
+`;
 
 function Layout({ name, description, image, next, back }) {
 	return (
 		<CharacterStyled>
-			<div className="container">
-				<header className="header">
-					<img className="header-logo" src={img.logo} alt="breaking bad logo" />
-					<a href="pages/grid.html">
-						<img className="small-img" src={img.grid} alt="" />
-					</a>
-				</header>
-				<main>
-					<section className="info-container">
-						<div className="character-labels-container">
-							<div className="character-name-arrows-container">
-								{name}
-								<div className="arrows-container">
-									{back}
-									{next}
-								</div>
+			<header className="header">
+				<Logo img={img.logo}></Logo>
+				<GridPage img={img.grid}></GridPage>
+			</header>
+			<main>
+				<section className="info-container">
+					<div className="character-labels-container">
+						<div className="character-name-arrows-container">
+							{name}
+							<div className="arrows-container">
+								{back}
+								{next}
 							</div>
-							{description}
 						</div>
-						<div className="character-image-container">{image}</div>
-					</section>
-				</main>
-				<footer className="footer">
-					<a
-						href="https://github.com/brandonporcel"
-						target="_blank"
-						rel="noreferrer"
-					>
-						<img className="small-img" src={img.github} alt="" />
-					</a>
-					<a
-						href="https://instagram.com/brandonporcel"
-						target="_blank"
-						rel="noopener"
-					>
-						<img className="small-img" src={img.instagram} alt="" />
-					</a>
-				</footer>
-			</div>
+						{description}
+					</div>
+					<div className="character-image-container">{image}</div>
+				</section>
+			</main>
+			<Social github={img.github} instagram={img.instagram} />
 		</CharacterStyled>
 	);
 }

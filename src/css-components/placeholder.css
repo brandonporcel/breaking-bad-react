@@ -1,0 +1,23 @@
+/* placeholder backgeound ---------------------------------------------------------------*/
+.placeholder {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+}
+/* aside left */
+.navigation {
+	writing-mode: vertical-lr;
+	margin-left: 75px;
+	display: flex;
+	align-items: center;
+}
+.navigation-name {
+	position: absolute;
+	top: 30px;
+}
+.navigation-about {
+	bottom: 40px;
+	position: absolute;
+}

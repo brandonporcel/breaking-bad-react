@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import './nprogress.css';
+import './css-components/placeholder.css';
 // import Character from './components/character';
 import CharacterName from './components/character-name';
 import CharacterImage from './components/character-image';
@@ -10,8 +11,13 @@ import Next from './components/next';
 import Back from './components/back';
 import api from './components/api';
 import Layout from './components/layout';
+import Dot from './components/dot';
+import Line from './components/line';
 import img from './img';
 import CharacterContext from './components/character-context';
+import NavigationName from './components/navigation-text';
+
+// import './css-components/placeholder.css';
 
 function App() {
 	const [character, setCharacter] = useState({});
@@ -36,23 +42,20 @@ function App() {
 		>
 			<div className="placeholder">
 				<CharacterPlaceholder name={character.name}></CharacterPlaceholder>
-				<div className="navigation navigation-name">
-					<div className="asset top">
-						<span className="dot"></span>
-						<span className="dot"></span>
-						<span className="dot"></span>
-						<span className="line"></span>
-						<span className="navigation-text navigation-text-name">NAME</span>
-					</div>
+				<div class="navigation navigation-name">
+					<Dot></Dot>
+					<Dot></Dot>
+					<Dot></Dot>
+					<Line></Line>
+					<NavigationName item="name"></NavigationName>
 				</div>
-				<div className="navigation navigation-about">
-					<div className="asset top">
-						<span className="navigation-text navigation-text-about">about</span>
-						<span className="line"></span>
-						<span className="dot"></span>
-						<span className="dot"></span>
-						<span className="dot"></span>
-					</div>
+
+				<div class="navigation navigation-about">
+					<NavigationName item="about"></NavigationName>
+					<Line></Line>
+					<Dot></Dot>
+					<Dot></Dot>
+					<Dot></Dot>
 				</div>
 			</div>
 			<Layout
