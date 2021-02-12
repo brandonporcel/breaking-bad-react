@@ -1,11 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const CharacterStyled = styled.img`
+const CharacterStyled = styled.div`
 	height: 200px;
 	width: 200px;
 	position: relative;
-
 	&::after {
 		content: '';
 		display: block;
@@ -17,15 +16,26 @@ const CharacterStyled = styled.img`
 		bottom: -20px;
 		left: -25px;
 	}
+	.character-image {
+		border-radius: 50%;
+		height: inherit;
+		width: inherit;
+		position: absolute;
+		object-fit: cover;
+		object-position: 50% 0;
+	}
+	@media screen and (max-width: 900px) {
+		&::after {
+			display: none;
+		}
+	}
 `;
 
 function CharacterImage({ image, name }) {
 	return (
-		<CharacterStyled
-			className="character-image"
-			src={image}
-			alt={name}
-		></CharacterStyled>
+		<CharacterStyled>
+			<img className="character-image" src={image} alt={name}></img>
+		</CharacterStyled>
 	);
 }
 export default CharacterImage;

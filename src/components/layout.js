@@ -9,6 +9,14 @@ const CharacterStyled = styled.div`
 	position: relative;
 	z-index: 22;
 	height: 100vh;
+	/* HEADER--------------------------------------------------------------- */
+	.header {
+		/* background-color: blue; */
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		padding: 0 100px;
+	}
 `;
 
 function Layout({ name, description, image, next, back }) {
@@ -18,21 +26,19 @@ function Layout({ name, description, image, next, back }) {
 				<Logo img={img.logo}></Logo>
 				<GridPage img={img.grid}></GridPage>
 			</header>
-			<main>
-				<section className="info-container">
-					<div className="character-labels-container">
-						<div className="character-name-arrows-container">
-							{name}
-							<div className="arrows-container">
-								{back}
-								{next}
-							</div>
+			<section className="info-container">
+				<div className="character-labels-container">
+					<div className="character-name-arrows-container">
+						{name}
+						<div className="arrows-container">
+							{back}
+							{next}
 						</div>
-						{description}
 					</div>
-					<div className="character-image-container">{image}</div>
-				</section>
-			</main>
+					{description}
+				</div>
+				<div className="character-image-container">{image}</div>
+			</section>
 			<Social github={img.github} instagram={img.instagram} />
 		</CharacterStyled>
 	);

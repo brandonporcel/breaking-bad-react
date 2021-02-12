@@ -42,7 +42,7 @@ function App() {
 		>
 			<div className="placeholder">
 				<CharacterPlaceholder name={character.name}></CharacterPlaceholder>
-				<div class="navigation navigation-name">
+				<div className="navigation navigation-name">
 					<Dot></Dot>
 					<Dot></Dot>
 					<Dot></Dot>
@@ -50,7 +50,7 @@ function App() {
 					<NavigationName item="name"></NavigationName>
 				</div>
 
-				<div class="navigation navigation-about">
+				<div className="navigation navigation-about">
 					<NavigationName item="about"></NavigationName>
 					<Line></Line>
 					<Dot></Dot>
