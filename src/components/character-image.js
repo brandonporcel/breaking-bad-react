@@ -25,6 +25,7 @@ const CharacterStyled = styled.div`
 		object-position: 50% 0;
 	}
 	@media screen and (max-width: 900px) {
+		order: 0;
 		&::after {
 			display: none;
 		}

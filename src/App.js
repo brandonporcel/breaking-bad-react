@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
+import GlobalStyle from './global-styles';
 import './nprogress.css';
 import './css-components/placeholder.css';
 // import Character from './components/character';
@@ -17,8 +17,6 @@ import img from './img';
 import CharacterContext from './components/character-context';
 import NavigationName from './components/navigation-text';
 
-// import './css-components/placeholder.css';
-
 function App() {
 	const [character, setCharacter] = useState({});
 	// efecto secundario
@@ -26,7 +24,9 @@ function App() {
 	useEffect(() => {
 		// podria no usar esta funcion y poner el async en el useEfect pero es una mala practicaa
 		const getCharacterInfo = async () => {
-			const characterSelection = await api.getCharacter(2);
+			let characterId = 2;
+
+			const characterSelection = await api.getCharacter(characterId);
 			const characterInfo = characterSelection[0];
 			setCharacter(characterInfo);
 		};
@@ -40,6 +40,7 @@ function App() {
 				setCharacter,
 			}}
 		>
+			<GlobalStyle></GlobalStyle>
 			<div className="placeholder">
 				<CharacterPlaceholder name={character.name}></CharacterPlaceholder>
 				<div className="navigation navigation-name">

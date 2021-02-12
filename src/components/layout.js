@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import img from '../img';
 import Social from './social';
 import Logo from './logo';
-import GridPage from './grid-page';
+
 const CharacterStyled = styled.div`
 	padding: 50px;
 	position: relative;
@@ -17,6 +17,40 @@ const CharacterStyled = styled.div`
 		align-items: center;
 		padding: 0 100px;
 	}
+	/* a ---------------------------------------------------------------*/
+	.info-container {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		margin-top: 50px;
+	}
+	.character-labels-container {
+		width: 50%;
+	}
+
+	.character-name-arrows-container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 70%;
+	}
+
+	@media screen and (max-width: 900px) {
+		.header {
+			justify-content: center;
+		}
+		.info-container {
+			flex-direction: column;
+		}
+		.character-labels-container {
+			order: 1;
+			width: 100%;
+		}
+		.character-name-arrows-container {
+			justify-content: center;
+			width: 100%;
+		}
+	}
 `;
 
 function Layout({ name, description, image, next, back }) {
@@ -24,7 +58,6 @@ function Layout({ name, description, image, next, back }) {
 		<CharacterStyled>
 			<header className="header">
 				<Logo img={img.logo}></Logo>
-				<GridPage img={img.grid}></GridPage>
 			</header>
 			<section className="info-container">
 				<div className="character-labels-container">

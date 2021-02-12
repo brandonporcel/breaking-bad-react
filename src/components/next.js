@@ -8,12 +8,14 @@ const CharacterStyled = styled.img``;
 
 function Next({ nextImg, nextImgAlt }) {
 	const context = useContext(CharacterContext);
-
+	const nothing = () => {};
 	async function handleClick() {
 		NProgress.start();
-		const characterSelection = await api.getCharacter(
-			context.character.char_id + 1
-		);
+		let currentCharacter = context.character.char_id + 1;
+		// el nothing() It's because of Nprogress, which doesn't stop loading
+
+		context.character.char_id >= 57 ? (currentCharacter = 1) : nothing();
+		const characterSelection = await api.getCharacter(currentCharacter);
 
 		const characterInfo = characterSelection[0];
 		context.setCharacter(characterInfo);
